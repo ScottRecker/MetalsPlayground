@@ -14,6 +14,9 @@
 		D210CEE82AEA269F00D3E8E7 /* MetalsPlaygroundTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D210CEE72AEA269F00D3E8E7 /* MetalsPlaygroundTests.swift */; };
 		D210CEF22AEA269F00D3E8E7 /* MetalsPlaygroundUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D210CEF12AEA269F00D3E8E7 /* MetalsPlaygroundUITests.swift */; };
 		D210CEF42AEA269F00D3E8E7 /* MetalsPlaygroundUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D210CEF32AEA269F00D3E8E7 /* MetalsPlaygroundUITestsLaunchTests.swift */; };
+		D210CF032AEA2A3000D3E8E7 /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = D210CF022AEA2A3000D3E8E7 /* Shaders.metal */; };
+		D210CF062AEA2A5200D3E8E7 /* Renderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D210CF052AEA2A5200D3E8E7 /* Renderer.swift */; };
+		D210CF082AEA2A7C00D3E8E7 /* MetalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D210CF072AEA2A7C00D3E8E7 /* MetalView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +47,9 @@
 		D210CEED2AEA269F00D3E8E7 /* MetalsPlaygroundUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MetalsPlaygroundUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D210CEF12AEA269F00D3E8E7 /* MetalsPlaygroundUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetalsPlaygroundUITests.swift; sourceTree = "<group>"; };
 		D210CEF32AEA269F00D3E8E7 /* MetalsPlaygroundUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetalsPlaygroundUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		D210CF022AEA2A3000D3E8E7 /* Shaders.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Shaders.metal; sourceTree = "<group>"; };
+		D210CF052AEA2A5200D3E8E7 /* Renderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Renderer.swift; sourceTree = "<group>"; };
+		D210CF072AEA2A7C00D3E8E7 /* MetalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetalView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +100,7 @@
 		D210CED52AEA269D00D3E8E7 /* MetalsPlayground */ = {
 			isa = PBXGroup;
 			children = (
+				D210CF002AEA2A1200D3E8E7 /* Engine */,
 				D210CED62AEA269D00D3E8E7 /* MetalsPlaygroundApp.swift */,
 				D210CED82AEA269D00D3E8E7 /* ContentView.swift */,
 				D210CEDA2AEA269E00D3E8E7 /* Assets.xcassets */,
@@ -125,6 +132,40 @@
 				D210CEF32AEA269F00D3E8E7 /* MetalsPlaygroundUITestsLaunchTests.swift */,
 			);
 			path = MetalsPlaygroundUITests;
+			sourceTree = "<group>";
+		};
+		D210CF002AEA2A1200D3E8E7 /* Engine */ = {
+			isa = PBXGroup;
+			children = (
+				D210CF042AEA2A3800D3E8E7 /* Renderer */,
+				D210CF012AEA2A1C00D3E8E7 /* Shaders */,
+				D210CF092AEA2A8800D3E8E7 /* View */,
+			);
+			path = Engine;
+			sourceTree = "<group>";
+		};
+		D210CF012AEA2A1C00D3E8E7 /* Shaders */ = {
+			isa = PBXGroup;
+			children = (
+				D210CF022AEA2A3000D3E8E7 /* Shaders.metal */,
+			);
+			path = Shaders;
+			sourceTree = "<group>";
+		};
+		D210CF042AEA2A3800D3E8E7 /* Renderer */ = {
+			isa = PBXGroup;
+			children = (
+				D210CF052AEA2A5200D3E8E7 /* Renderer.swift */,
+			);
+			path = Renderer;
+			sourceTree = "<group>";
+		};
+		D210CF092AEA2A8800D3E8E7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D210CF072AEA2A7C00D3E8E7 /* MetalView.swift */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,6 +298,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D210CF062AEA2A5200D3E8E7 /* Renderer.swift in Sources */,
+				D210CF032AEA2A3000D3E8E7 /* Shaders.metal in Sources */,
+				D210CF082AEA2A7C00D3E8E7 /* MetalView.swift in Sources */,
 				D210CED92AEA269D00D3E8E7 /* ContentView.swift in Sources */,
 				D210CED72AEA269D00D3E8E7 /* MetalsPlaygroundApp.swift in Sources */,
 			);
