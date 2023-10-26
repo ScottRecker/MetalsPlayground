@@ -50,6 +50,7 @@
 		D210CF022AEA2A3000D3E8E7 /* Shaders.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Shaders.metal; sourceTree = "<group>"; };
 		D210CF052AEA2A5200D3E8E7 /* Renderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Renderer.swift; sourceTree = "<group>"; };
 		D210CF072AEA2A7C00D3E8E7 /* MetalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetalView.swift; sourceTree = "<group>"; };
+		D210CF0A2AEAFE1700D3E8E7 /* defines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = defines.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +141,7 @@
 				D210CF042AEA2A3800D3E8E7 /* Renderer */,
 				D210CF012AEA2A1C00D3E8E7 /* Shaders */,
 				D210CF092AEA2A8800D3E8E7 /* View */,
+				D210CF0A2AEAFE1700D3E8E7 /* defines.h */,
 			);
 			path = Engine;
 			sourceTree = "<group>";
@@ -482,6 +484,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.recker.MetalsPlayground;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = MetalsPlayground/Engine/defines.h;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -511,6 +514,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.recker.MetalsPlayground;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = MetalsPlayground/Engine/defines.h;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

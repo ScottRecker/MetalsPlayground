@@ -13,6 +13,7 @@ class Renderer: NSObject, MTKViewDelegate {
     var metalDevice: MTLDevice!
     var metalCommandQueue: MTLCommandQueue!
     var pipelineState: MTLRenderPipelineState
+    var vertextBuffer: MTLBuffer
 
     init(_ parent: MetalView) {
         self.parent = parent
@@ -35,6 +36,24 @@ class Renderer: NSObject, MTKViewDelegate {
         } catch {
             fatalError("Cannot create render pipeline")
         }
+        
+//        let vertices = [
+//            vector_float3(0, 1, 0), // Middle top of screen
+//            vector_float3(-1, -1, 0), // bottom left of screen
+//            vector_float3(1, -1, 0), // bottom right. of screen
+//        ]
+        
+        let vertices = [
+            Vertex(position: vector_float3(1, 1, 0), color: vector_float4(1.0, 0.0, 0.0, 1.0)),   // Middle top of screen
+            Vertex(position: vector_float3(-1, -1, 0), color: vector_float4(0.0, 1.0, 0.0, 1.0)),   // bottom left of screen
+            Vertex(position: vector_float3(1, -1, 0), color: vector_float4(0.0, 0.0, 1.0, 1.0)),    // bottom right. of screen
+
+            Vertex(position: vector_float3(-1, 1, 0), color: vector_float4(1.0, 0.0, 0.0, 1.0)),   // Middle top of screen
+            Vertex(position: vector_float3(-1, -1, 0), color: vector_float4(0.0, 1.0, 0.0, 1.0)),   // bottom left of screen
+            Vertex(position: vector_float3(1, 1, 0), color: vector_float4(0.0, 0.0, 1.0, 1.0))    // bottom right. of screen
+        ]
+        
+        vertextBuffer = self.metalDevice.makeBuffer(bytes: vertices, length: MemoryLayout<Vertex>.stride * vertices.count, options: [])!
 
         super.init()
     }
@@ -54,7 +73,7 @@ class Renderer: NSObject, MTKViewDelegate {
         // Describes the view sources that we will be making use of, for
         // example colorAttachments[0] for the color
         let renderPassDescriptor = view.currentRenderPassDescriptor
-        renderPassDescriptor?.colorAttachments[0].clearColor = MTLClearColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 1.0)
+        renderPassDescriptor?.colorAttachments[0].clearColor = MTLClearColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         renderPassDescriptor?.colorAttachments[0].loadAction = .clear
         renderPassDescriptor?.colorAttachments[0].storeAction = .store
 
@@ -64,6 +83,13 @@ class Renderer: NSObject, MTKViewDelegate {
 
         // Binds our renderPipeline
         renderEncoder?.setRenderPipelineState(pipelineState)
+
+        // Send data to shader
+        renderEncoder?.setVertexBuffer(vertextBuffer, offset: 0, index: 0)
+//        renderEncoder?.setTriangleFillMode(.lines)
+
+        renderEncoder?.drawPrimitives(type: .triangle, vertexStart: 0, vertexCount: 6)
+
         renderEncoder?.endEncoding()
 
 
